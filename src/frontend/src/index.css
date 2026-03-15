@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0 0;
+    --foreground: 96 0.01 240;
+    --card: 5 0.01 240;
+    --card-foreground: 96 0.01 240;
+    --popover: 5 0.01 240;
+    --popover-foreground: 96 0.01 240;
+    --primary: 87 0.22 195;
+    --primary-foreground: 0 0 0;
+    --secondary: 45 0.2 295;
+    --secondary-foreground: 96 0.01 240;
+    --muted: 15 0.02 240;
+    --muted-foreground: 65 0.05 240;
+    --accent: 45 0.2 295;
+    --accent-foreground: 96 0.01 240;
+    --destructive: 50 0.22 27;
+    --destructive-foreground: 96 0.01 240;
+    --border: 20 0.04 240;
+    --input: 15 0.03 240;
+    --ring: 87 0.22 195;
+    --radius: 0.5rem;
+    --chart-1: 87 0.22 195;
+    --chart-2: 45 0.2 295;
+    --chart-3: 65 0.18 220;
+    --chart-4: 75 0.15 160;
+    --chart-5: 55 0.22 27;
+    --sidebar: 5 0.01 240;
+    --sidebar-foreground: 96 0.01 240;
+    --sidebar-primary: 87 0.22 195;
+    --sidebar-primary-foreground: 0 0 0;
+    --sidebar-accent: 15 0.02 240;
+    --sidebar-accent-foreground: 96 0.01 240;
+    --sidebar-border: 20 0.04 240;
+    --sidebar-ring: 87 0.22 195;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Rajdhani", sans-serif;
+    background-color: #000;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .font-orbitron {
+    font-family: "Orbitron", monospace;
+  }
+  .font-rajdhani {
+    font-family: "Rajdhani", sans-serif;
+  }
+  .text-glow-cyan {
+    text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00e5ff;
+  }
+  .text-glow-purple {
+    text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7, 0 0 40px #7b2fbe;
+  }
+  .border-glow-cyan {
+    box-shadow: 0 0 10px #00ffff40, 0 0 20px #00ffff20, inset 0 0 10px #00ffff10;
+    border-color: #00ffff40;
+  }
+  .border-glow-purple {
+    box-shadow: 0 0 10px #a855f740, 0 0 20px #a855f720, inset 0 0 10px #a855f710;
+    border-color: #a855f740;
+  }
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(0, 255, 255, 0.25);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15), 0 8px 32px rgba(0, 0, 0, 0.5);
+    transform: translateY(-4px);
+  }
+  .glass-nav {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+  }
+  .scan-line {
+    background: linear-gradient(transparent 50%, rgba(0, 255, 255, 0.02) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(5deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rocketLaunch {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(-5deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px #00ffff40, 0 0 20px #00ffff20;
+  }
+  50% {
+    box-shadow: 0 0 30px #00ffff80, 0 0 60px #00ffff40;
+  }
+}
+
+@keyframes scanline-move {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nebula-drift {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+.animate-rocket {
+  animation: rocketLaunch 5s ease-in-out infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Planet orbit animations */
+.orbit-mercury {
+  animation: orbit 4s linear infinite;
+}
+.orbit-venus {
+  animation: orbit 10s linear infinite;
+}
+.orbit-earth {
+  animation: orbit 16s linear infinite;
+}
+.orbit-mars {
+  animation: orbit 30s linear infinite;
+}
+.orbit-jupiter {
+  animation: orbit 60s linear infinite;
+}
+.orbit-saturn {
+  animation: orbit 100s linear infinite;
+}
+.orbit-uranus {
+  animation: orbit 168s linear infinite;
+}
+.orbit-neptune {
+  animation: orbit 264s linear infinite;
+}
+
+/* Starfield background */
+.starfield-bg {
+  background-image: radial-gradient(
+      1px 1px at 10% 20%,
+      rgba(255, 255, 255, 0.8) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 30% 80%,
+      rgba(255, 255, 255, 0.6) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 50% 40%,
+      rgba(255, 255, 255, 0.9) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 70% 60%,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 90% 10%,
+      rgba(255, 255, 255, 0.8) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 20% 55%,
+      rgba(255, 255, 255, 0.5) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 60% 90%,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 100%
+    ),
+    radial-gradient(
+      1px 1px at 80% 30%,
+      rgba(255, 255, 255, 0.6) 0%,
+      transparent 100%
+    );
+}
+
+/* Cyan underline decoration */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #00ffff, #a855f7);
+  margin: 12px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #00ffff80;
+}
